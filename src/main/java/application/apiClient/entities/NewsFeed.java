@@ -1,4 +1,4 @@
-package application.apiClient.utils;
+package application.apiClient.entities;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

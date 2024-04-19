@@ -1,4 +1,4 @@
-package application.apiClient.utils;
+package application.apiClient.entities;
 
 public class MajorOrderDetails {
     private int type;

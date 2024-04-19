@@ -1,18 +1,10 @@
 package application.apiClient;
 
-import application.apiClient.utils.MajorOrder;
-import application.apiClient.utils.NewsFeed;
-import application.apiClient.utils.NewsFeedItems;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import application.apiClient.entities.MajorOrder;
+import application.apiClient.entities.NewsFeedItems;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
-import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.util.List;
 
 public class ApiClient {
