@@ -61,3 +61,23 @@ public class NewsFeedItems {
         return newsFeedItems;
     }
 }
+
+    /*String newsFeedJson = """
+                [
+                {
+                    "id": 2797,
+                        "published": 2414563,
+                        "type": 0,
+                        "tagIds": [],
+                    "message": "Terminid spores have engulfed Heeth and Angel's Venture, spawning hordes of Terminids that overwhelmed our colonial militias. Clearly, the bug hive instinct oriented their mindless expansion towards dishonoring the memory of those who fought to free these planets.\n\nYour fellow Helldivers paid for these lands with their lives. We cannot lose them now. Hold the planets until SEAF reinforcements arrive."
+                },
+                {
+                    "id": 2798,
+                        "published": 2499000,
+                        "type": 0,
+                        "tagIds": [],
+                    "message": "The Advanced Liberation Tools Research Agency (ALTRA) has tested successful prototypes of a new combat asset. Helldivers are advised to review proper mechanical operation procedures in preparation for the incoming asset."
+                }
+                ]
+                """;
+*/
