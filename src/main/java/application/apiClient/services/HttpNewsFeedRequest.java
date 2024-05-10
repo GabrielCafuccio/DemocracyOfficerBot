@@ -25,15 +25,20 @@ public class HttpNewsFeedRequest {
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpResponse<String> getResponse = httpClient.send(getRequest, HttpResponse.BodyHandlers.ofString());
 
-        Gson gson = new Gson();
-        Type classType = new TypeToken<List<NewsFeedItems>>(){}.getType();
-        List<NewsFeedItems> newsFeedItems = gson.fromJson(getResponse.body(), classType);
+        try {
+            Gson gson = new Gson();
+            Type classType = new TypeToken<List<NewsFeedItems>>() {
+            }.getType();
+            List<NewsFeedItems> newsFeedItems = gson.fromJson(getResponse.body(), classType);
 
-        //Update NewsFeed if NewsFeed is empty or if the ID of the last item from NewsFeed.getNewsFeedItems() is fidderent then the last one from the newly requested newsFeedItems.
-        //And sets the published flag false
-        if(NewsFeed.getNewsFeedItems().isEmpty() || NewsFeed.getNewsFeedItems().get(NewsFeed.getNewsFeedItems().size()-1).getId() != newsFeedItems.get(newsFeedItems.size()-1).getId()){
-            NewsFeed.setNewsFeedItems(newsFeedItems);
-            NewsFeed.setPublished(false);
+            //Update NewsFeed if NewsFeed is empty or if the ID of the last item from NewsFeed.getNewsFeedItems() is different then the last one from the newly requested newsFeedItems.
+            //And sets the published flag false
+            if(NewsFeed.getNewsFeedItems().isEmpty() || NewsFeed.getNewsFeedItems().get(NewsFeed.getNewsFeedItems().size()-1).getId() != newsFeedItems.get(newsFeedItems.size()-1).getId()){
+                NewsFeed.setNewsFeedItems(newsFeedItems);
+                NewsFeed.setPublished(false);
+            }
+        } catch (Exception e){
+            System.out.println("Exception at HttpNewsRequest: " + e);
         }
     }
 }

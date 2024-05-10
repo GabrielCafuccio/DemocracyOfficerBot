@@ -9,6 +9,8 @@ import application.apiClient.services.UpdateFeeds;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+
+//Endpoints at https://api.diveharder.com/docs#/
 public final class ApiClient {
     private static final NewsFeed newsFeed = new NewsFeed();
     private static MajorOrder majorOrder = new MajorOrder();
@@ -19,7 +21,7 @@ public final class ApiClient {
     }
 
     public static void updateNewsFeed() throws URISyntaxException, IOException, InterruptedException {
-        System.out.println("Updating newsFeed");
+//        System.out.println("Updating newsFeed");
         HttpNewsFeedRequest.request();
     }
 
