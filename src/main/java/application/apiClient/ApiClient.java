@@ -26,10 +26,10 @@ public final class ApiClient {
     }
 
     public static void updateMajorOrder() throws URISyntaxException, IOException, InterruptedException {
-        System.out.println("Updating Major Order");
+//        System.out.println("Updating Major Order");
         MajorOrder auxMajorOrder = HttpMajorOrderRequest.request();
 
-        if(majorOrder == null || majorOrder.getId32() != auxMajorOrder.getId32()){
+        if(majorOrder.getId32() == 0 || majorOrder.getId32() != auxMajorOrder.getId32()){
             majorOrder = auxMajorOrder;
             majorOrder.setPublished(false);
         }

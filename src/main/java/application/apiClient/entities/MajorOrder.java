@@ -6,18 +6,18 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 
 public class MajorOrder {
-    private boolean isPublished = false;
+    private static boolean isPublished = false;
 
     private long id32;
     private int[] progress;
     private int expiresIn;
     private MajorOrderDetails setting;
 
-    public boolean isPublished() {
+    public static boolean isPublished() {
         return isPublished;
     }
 
-    public void setPublished(boolean published) {
+    public static void setPublished(boolean published) {
         isPublished = published;
     }
 

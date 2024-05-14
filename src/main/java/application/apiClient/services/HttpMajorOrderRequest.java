@@ -11,6 +11,7 @@ import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.List;
 
 public class HttpMajorOrderRequest {
 
@@ -23,9 +24,15 @@ public class HttpMajorOrderRequest {
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpResponse<String> getResponse = httpClient.send(getRequest, HttpResponse.BodyHandlers.ofString());
 
-        Gson gson = new Gson();
-        Type classType = new TypeToken<MajorOrder>(){}.getType();
+        try{
+            Gson gson = new Gson();
+            Type classType = new TypeToken<List<MajorOrder>>(){}.getType();
+            List<MajorOrder> auxMajorOrder = gson.fromJson(getResponse.body(), classType);
 
-        return gson.fromJson(getResponse.body(), classType);
+            return auxMajorOrder.get(0);
+        } catch (Exception e){
+            System.out.println("Exception at HttpMajorOrderRequest: " + e);
+            return new MajorOrder();
+        }
     }
 }

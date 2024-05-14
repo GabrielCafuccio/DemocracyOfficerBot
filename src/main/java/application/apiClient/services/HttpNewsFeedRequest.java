@@ -27,8 +27,7 @@ public class HttpNewsFeedRequest {
 
         try {
             Gson gson = new Gson();
-            Type classType = new TypeToken<List<NewsFeedItems>>() {
-            }.getType();
+            Type classType = new TypeToken<List<NewsFeedItems>>() {}.getType();
             List<NewsFeedItems> newsFeedItems = gson.fromJson(getResponse.body(), classType);
 
             //Update NewsFeed if NewsFeed is empty or if the ID of the last item from NewsFeed.getNewsFeedItems() is different then the last one from the newly requested newsFeedItems.
@@ -38,7 +37,7 @@ public class HttpNewsFeedRequest {
                 NewsFeed.setPublished(false);
             }
         } catch (Exception e){
-            System.out.println("Exception at HttpNewsRequest: " + e);
+            System.out.println("Exception at HttpNewsFeedRequest: " + e);
         }
     }
 }

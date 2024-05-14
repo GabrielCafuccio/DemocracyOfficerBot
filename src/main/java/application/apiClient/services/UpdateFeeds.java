@@ -12,8 +12,9 @@ public class UpdateFeeds extends Thread{
     public void run(){
         while (true){
             try {
-                System.out.println(i + ": Updating NewsFeed");
+                System.out.println(i + ": Updating NewsFeed & MajorOrder");
                 ApiClient.updateNewsFeed();
+                ApiClient.updateMajorOrder();
             } catch (URISyntaxException | IOException | InterruptedException e) {
                 e.printStackTrace();
             }
