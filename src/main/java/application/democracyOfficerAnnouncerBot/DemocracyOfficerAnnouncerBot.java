@@ -25,8 +25,17 @@ public class DemocracyOfficerAnnouncerBot {
                 .addEventListeners(new ReadyEventListener(), new BotCommands())
                 .build();
 
-        jda.upsertCommand("write-to-channel", "Choose a text channel to write")
-                .addOption(OptionType.CHANNEL, "canal", "channel in which to write", true)
+        jda.upsertCommand("subscribe-channel", "Choose a text channel to receive News")
+                .addOption(OptionType.CHANNEL, "canal", "channel in which to receive news", true)
+                .setGuildOnly(true)
+                .queue();
+
+        jda.upsertCommand("unsubscribe-channel", "Choose a text channel to unsubscribe")
+                .addOption(OptionType.CHANNEL, "canal", "channel in which to unsubscribe", true)
+                .setGuildOnly(true)
+                .queue();
+
+        jda.upsertCommand("show-subbed-channels", "Print all subbed channels")
                 .setGuildOnly(true)
                 .queue();
 

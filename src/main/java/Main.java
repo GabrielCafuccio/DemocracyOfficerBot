@@ -16,8 +16,7 @@ public class Main {
         BroadCastMessages broadCastMessages = new BroadCastMessages();
         broadCastMessages.start();
 
-        System.out.println("Bot started!");
-
+        System.out.println("Starting ApiClient");
         ApiClient apiClient = new ApiClient();
         apiClient.startUpdateFeeds();
     }
