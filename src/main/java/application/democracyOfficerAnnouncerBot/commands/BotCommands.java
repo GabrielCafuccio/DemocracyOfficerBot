@@ -18,7 +18,7 @@ public class BotCommands extends ListenerAdapter {
     private static SubscribedChannelsList subscribedChannelsList;
 
     public BotCommands(){
-        String filepath = "src/main/resources/cache/cacheSubbedChannels.json";
+        String filepath = "cache/cacheSubbedChannels.json";
         Gson gson = new Gson();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filepath));

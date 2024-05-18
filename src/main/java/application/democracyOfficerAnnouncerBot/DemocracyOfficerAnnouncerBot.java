@@ -17,8 +17,8 @@ public class DemocracyOfficerAnnouncerBot {
         return democracyOfficerAnnouncerBot;
     }
 
-    public void start() throws InterruptedException {
-        final String token = "BOT TOKEN GOES HERE";
+    public void start(String botToken) throws InterruptedException {
+        final String token = botToken;
 
         JDABuilder jdaBuilder = JDABuilder.createDefault(token);
         jda = jdaBuilder

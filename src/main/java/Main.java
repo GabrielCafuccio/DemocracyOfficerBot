@@ -10,7 +10,7 @@ public class Main {
         System.out.println("Starting bot...");
 
         DemocracyOfficerAnnouncerBot democracyOfficerAnnouncerBot = DemocracyOfficerAnnouncerBot.getInstance();
-        democracyOfficerAnnouncerBot.start();
+        democracyOfficerAnnouncerBot.start(args[0]);
 
         System.out.println("Starting Broadcasting Thread");
         BroadCastMessages broadCastMessages = new BroadCastMessages();

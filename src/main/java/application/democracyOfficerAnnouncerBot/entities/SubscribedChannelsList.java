@@ -41,7 +41,16 @@ public class SubscribedChannelsList {
 
         try {
             System.out.println("Saving channels.");
-            FileWriter fileWriter = new FileWriter("src/main/resources/cache/cacheSubbedChannels.json");
+
+            File directory = new File("cache");
+            if (!directory.exists()) {
+                boolean directoryCreated = directory.mkdirs();
+                if (!directoryCreated) {
+                    System.err.println("Failed to create directory.");
+                    return;
+                }
+            }
+            FileWriter fileWriter = new FileWriter("cache/cacheSubbedChannels.json");
             fileWriter.write(json);
             fileWriter.close();
 
