@@ -3,6 +3,7 @@ package application.democracyOfficerAnnouncerBot.commands;
 import application.democracyOfficerAnnouncerBot.entities.SubscribedChannelsList;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import net.dv8tion.jda.api.entities.channel.middleman.GuildChannel;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
@@ -12,6 +13,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class BotCommands extends ListenerAdapter {
@@ -72,7 +74,16 @@ public class BotCommands extends ListenerAdapter {
             if(subscribedChannelsList.isEmpty()){
                 event.reply("Channel List is empty.").queue();
             } else {
-                event.reply("List of channels: " + subscribedChannelsList.getChannels().toString()).queue();
+                List<String> channels = new ArrayList<>();
+                for(GuildChannel channel : event.getGuild().getChannels()){
+                    if(subscribedChannelsList.contains(channel.getId())){
+                        channels.add(channel.getName());
+                    }
+                }
+                if(channels.isEmpty()){
+                    event.reply("Your server have no channels subscribed yet.").queue();
+                }
+                event.reply("List of channels: " + channels.toString()).queue();
             }
         }
     }
